@@ -41,7 +41,7 @@ python seed_data.py
 ```bash
 python manage.py runserver
 ```
-Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser.
+Visit **[https://collegeportal-7v6y.onrender.com//](http://127.0.0.1:8000/)** in your browser.
 
 ---
 
@@ -80,26 +80,6 @@ Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser.
 
 ---
 
-## 🌐 Deployment Guide
-
-### Option A: Free Deployment on Render (Recommended)
-1. Push this project folder to a GitHub repository.
-2. Log in to [Render](https://render.com) and click **New +** → **Web Service**.
-3. Select your GitHub repository.
-4. Set the following parameters:
-   - **Environment:** `Python 3`
-   - **Build Command:** `pip install -r requirements.txt && python manage.py migrate && python seed_data.py`
-   - **Start Command:** `gunicorn djangoproject.wsgi:application`
-5. Click **Create Web Service**. Your portal will be live on a `https://<app-name>.onrender.com` URL!
-
-### Option B: Free Deployment on PythonAnywhere
-1. Create a free account on [PythonAnywhere](https://www.pythonanywhere.com/).
-2. Open a **Bash Console** and clone/upload your project.
-3. In the **Web** tab, create a Manual Django configuration with Python 3.10+.
-4. Point the WSGI configuration to `djangoproject/wsgi.py` and set static directory to `/static/`.
-5. Reload the web app.
-
----
 
 ## 📁 Project Structure
 
