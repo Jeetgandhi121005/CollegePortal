@@ -45,14 +45,8 @@ Visit **[http://127.0.0.1:8000/](http://127.0.0.1:8000/)** in your browser.
 
 ---
 
-## 🔑 Default Login & Admin Credentials
 
-| Role | Username | Password | Email |
-| :--- | :--- | :--- | :--- |
-| **Superuser / Admin** | `admin` | `admin123` | `admin@collegeportal.com` |
-| **Student / User** | `jeet` | `jeet123` | `jeet@gmail.com` |
 
----
 
 ## 📋 Complete Practical / Questions Mapping (1 to 25)
 
