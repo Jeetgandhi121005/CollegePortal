@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Details - College Portal{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 7: Inject Data from View to Template</h1>
+  <p>Context Dictionary passing to Django Template</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card">
+    <h2 class="card-title">Student Information</h2>
+    <p class="card-subtitle">Data injected dynamically from Django View context</p>
+
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:1.8rem; display:flex; flex-direction:column; gap:1.2rem;">
+      <div style="display:flex; justify-content:space-between; border-bottom:1px solid #edf2f7; padding-bottom:8px;">
+        <span style="color:#64748b; font-weight:600;">Name:</span>
+        <strong style="color:#0f172a; font-size:1.05rem;">{{ name }}</strong>
+      </div>
+      <div style="display:flex; justify-content:space-between; border-bottom:1px solid #edf2f7; padding-bottom:8px;">
+        <span style="color:#64748b; font-weight:600;">Course:</span>
+        <strong style="color:#0284c7; font-size:1.05rem;">{{ course }}</strong>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span style="color:#64748b; font-weight:600;">College:</span>
+        <strong style="color:#0f172a; font-size:1.05rem;">{{ college }}</strong>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; text-align:center;">
+      <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals Hub</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

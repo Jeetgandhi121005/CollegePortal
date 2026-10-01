@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Registration - Practical 21 & 25{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Student Registration</h1>
+  <p>Practical 21 &amp; 25: Registration Form with Live jQuery AJAX Email Verification</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card">
+    <h2 class="card-title">Student Registration</h2>
+    <p class="card-subtitle">Fill in student details to enroll in a course</p>
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="Enter student full name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="course">Course</label>
+        <select id="course" name="course" class="form-control" required>
+          <option value="">Select Course</option>
+          {% for course in courses %}
+            <option value="{{ course.id }}">{{ course.course_name }} ({{ course.course_code }})</option>
+          {% endfor %}
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email ID</label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="Enter email address" required autocomplete="off">
+        <p id="email-message" style="margin-top:6px; font-size:0.85rem; font-weight:600;"></p>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Mobile Number</label>
+        <input type="text" id="mobile" name="mobile" class="form-control" placeholder="e.g. 9876543210" required>
+      </div>
+
+      <div class="form-group">
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" class="form-control" placeholder="e.g. Ahmedabad" required>
+      </div>
+
+      <button type="submit" class="btn-submit">Save Student</button>
+    </form>
+
+    <div style="margin-top:1.5rem; text-align:center;">
+      <a href="{% url 'student_list' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Student List</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  // Practical 25: Check Email ID Exists using AJAX jQuery
+  $('#email').on('keyup input', function () {
+    var email = $(this).val().trim();
+    if (email.length > 2) {
+      $.ajax({
+        url: "{% url 'check_email' %}",
+        data: {'email': email},
+        success: function (data) {
+          if (data.exists) {
+            $('#email-message').text('⚠️ This email ID already exists.').css('color', '#ef4444');
+          } else {
+            $('#email-message').text('✅ Email ID is available.').css('color', '#10b981');
+          }
+        }
+      });
+    } else {
+      $('#email-message').text('');
+    }
+  });
+</script>
+{% endblock %}

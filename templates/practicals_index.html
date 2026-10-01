@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block title %}All Practicals (1 to 25) - College Portal Assignment{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>College Assignment: Django Practicals (1 to 25)</h1>
+  <p>Complete implementation index with live demo links and test routes</p>
+</section>
+
+<div class="page-container" style="max-width: 1200px;">
+  
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+
+    <!-- Practical 1 & 2 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 1 &amp; 2</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Environment Setup &amp; App Config</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Django 5.x installed, project created, <code>student</code> application registered in <code>INSTALLED_APPS</code>.</p>
+      <div style="font-size:0.85rem; color:#10b981; font-weight:600;">✓ Configured in settings.py</div>
+    </div>
+
+    <!-- Practical 3 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 3</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">HttpResponse "Welcome to Django"</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Direct HTTP Response returning HTML content without rendering templates.</p>
+      <a href="{% url 'welcome_http' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 4 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 4</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">URL Parameters to View</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Dynamic URL routing: <code>path('contact/&lt;str:name&gt;/', ...)</code></p>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <a href="{% url 'contact_param' 'jeet' %}" class="btn" style="padding:5px 12px; font-size:0.82rem;">/contact/jeet/</a>
+        <a href="{% url 'contact_param' 'student' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:5px 12px; font-size:0.82rem;">/contact/student/</a>
+      </div>
+    </div>
+
+    <!-- Practical 5 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 5</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Mapping Multiple Views to URLs</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Separate view functions returning Home Page, About Us, and Contact Us HTTP responses.</p>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <a href="{% url 'http_home' %}" class="btn" style="padding:4px 10px; font-size:0.8rem;">Home</a>
+        <a href="{% url 'http_about' %}" class="btn" style="padding:4px 10px; font-size:0.8rem;">About</a>
+        <a href="{% url 'http_contact' %}" class="btn" style="padding:4px 10px; font-size:0.8rem;">Contact</a>
+      </div>
+    </div>
+
+    <!-- Practical 6 & 16 & 17 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 6, 16, 17</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Templates &amp; Layout Inheritance</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Master <code>base.html</code> layout extended by <code>index.html</code>, <code>about.html</code>, and <code>contact.html</code>.</p>
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        <a href="{% url 'home' %}" class="btn" style="padding:4px 10px; font-size:0.8rem;">Home Page</a>
+        <a href="{% url 'about' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:4px 10px; font-size:0.8rem;">About</a>
+        <a href="{% url 'contact' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:4px 10px; font-size:0.8rem;">Contact</a>
+      </div>
+    </div>
+
+    <!-- Practical 7 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 7</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Inject Data from View to Template</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Passing context dict with student name, course, and college to template variables.</p>
+      <a href="{% url 'student' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 8 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 8</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Student List using Django For Loop</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Iterating Python list in template using <code>&#123;% for student in students %&#125;</code>.</p>
+      <a href="{% url 'students_loop' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 9 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 9</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Course List using forloop.counter</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Displaying course cards and numbering with <code>&#123;&#123; forloop.counter &#125;&#125;</code> and <code>course.css</code>.</p>
+      <a href="{% url 'course' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 10 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 10</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Pass / Fail using if Statement</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Template condition evaluating <code>&#123;% if marks &gt;= 35 %&#125;</code>.</p>
+      <a href="{% url 'marks' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 11 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 11</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Result using if...else</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Binary conditional rendering with <code>&#123;% if %&#125; ... &#123;% else %&#125;</code>.</p>
+      <a href="{% url 'result' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 12 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 12</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Grade Calculator (if...elif...else)</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Grading categories: Distinction (&gt;=75), First Class (&gt;=60), Pass (&gt;=35), Fail.</p>
+      <a href="{% url 'grade' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 13 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 13</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Employee Salary Status</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Nested conditional logic within a loop calculating High vs Normal salary status.</p>
+      <a href="{% url 'employee' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 14 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 14</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Empty List Example (&#123;% empty %&#125;)</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Graceful zero-state fallback rendering when list context is empty.</p>
+      <a href="{% url 'books' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 15 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 15</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Django Template Filters</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Testing filters: <code>|upper</code>, <code>|lower</code>, <code>|capfirst</code>, <code>|truncatechars</code>, <code>|length</code>.</p>
+      <a href="{% url 'filters' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 18 & 19 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 18 &amp; 19</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Static Files &amp; JavaScript Alert</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Custom CSS styling, static images (<code>logo.png</code>, <code>student.png</code>), and <code>script.js</code>.</p>
+      <button onclick="showMessage()" class="btn" style="padding:5px 14px; font-size:0.82rem; cursor:pointer;">Test JS Alert 🔔</button>
+    </div>
+
+    <!-- Practical 20 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 20</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Django ModelForm</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Student registration using Django's <code>forms.ModelForm</code> and <code>{{ form.as_p }}</code>.</p>
+      <a href="{% url 'student_form' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Live Output →</a>
+    </div>
+
+    <!-- Practical 21 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 21</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Student CRUD (FBV)</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Complete Create, Read, Update, Delete on Student table using Function Based Views.</p>
+      <div style="display:flex; gap:6px;">
+        <a href="{% url 'student_list' %}" class="btn" style="padding:5px 12px; font-size:0.82rem;">Student List</a>
+        <a href="{% url 'add_student' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:5px 12px; font-size:0.82rem;">+ Register</a>
+      </div>
+    </div>
+
+    <!-- Practical 22 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 22</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Course CRUD (CBV) &amp; Search</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">ListView, CreateView, UpdateView, DeleteView + real-time search query filtering.</p>
+      <div style="display:flex; gap:6px;">
+        <a href="{% url 'course_list' %}" class="btn" style="padding:5px 12px; font-size:0.82rem;">Course List</a>
+        <a href="{% url 'course_add' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:5px 12px; font-size:0.82rem;">+ Add Course</a>
+      </div>
+    </div>
+
+    <!-- Practical 23 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 23</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Django Sessions (CRUD)</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Create, Modify, Delete, and Read persistent session attributes in <code>request.session</code>.</p>
+      <a href="{% url 'show_session' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">Session Dashboard →</a>
+    </div>
+
+    <!-- Practical 24 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 24</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Django Authentication</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">User login, logout, password authentication, and session cookie attachment.</p>
+      <div style="display:flex; gap:6px;">
+        <a href="{% url 'login' %}" class="btn" style="padding:5px 12px; font-size:0.82rem;">Login Page</a>
+        <a href="/admin/" target="_blank" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:5px 12px; font-size:0.82rem;">Django Admin Panel ↗</a>
+      </div>
+    </div>
+
+    <!-- Practical 25 -->
+    <div style="background:white; padding:1.5rem; border-radius:12px; border:1px solid #e2e8f0; box-shadow:var(--shadow-sm);">
+      <span style="background:#e0f2fe; color:#0369a1; font-size:0.75rem; font-weight:800; padding:3px 8px; border-radius:10px;">PRACTICAL 25</span>
+      <h3 style="font-size:1.15rem; margin:8px 0; color:#0f172a;">Check Email via AJAX jQuery</h3>
+      <p style="color:#64748b; font-size:0.88rem; margin-bottom:12px;">Asynchronous email validation without page reloads using jQuery AJAX and JsonResponse.</p>
+      <a href="{% url 'check_email_page' %}" class="btn" style="padding:5px 14px; font-size:0.82rem;">AJAX Demo Page →</a>
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

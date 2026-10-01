@@ -1,0 +1,635 @@
+/* ============================================================
+   CollegePortal - Modern Django Master Stylesheet
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #0d6efd;
+  --primary-dark: #0b5ed7;
+  --primary-light: #e7f1ff;
+  --navy-bg: #0d1b2a;
+  --navy-header: #0f1e36;
+  --navy-card: #1b263b;
+  --accent-cyan: #00b4d8;
+  --accent-teal: #06d6a0;
+  --accent-red: #ef476f;
+  --accent-orange: #f77f00;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --bg-light: #f4f6f9;
+  --white: #ffffff;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-md: 0 6px 18px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 28px rgba(0,0,0,0.12);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 50px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-light);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+/* ============================================================
+   Navbar Header
+   ============================================================ */
+.navbar {
+  background: linear-gradient(135deg, #0b172a 0%, #112240 100%);
+  color: var(--white);
+  padding: 0.9rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+}
+
+.nav-brand span {
+  color: #38bdf8;
+}
+
+.nav-brand img {
+  height: 38px;
+  width: 38px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #ffffff;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-pill-blue {
+  background: #0284c7;
+  color: white !important;
+  padding: 7px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(2,132,199,0.35);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.btn-pill-blue:hover {
+  background: #0369a1;
+  transform: translateY(-1px);
+}
+
+.btn-pill-cyan {
+  background: #06b6d4;
+  color: white !important;
+  padding: 7px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(6,182,212,0.35);
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.btn-pill-cyan:hover {
+  background: #0891b2;
+  transform: translateY(-1px);
+}
+
+.btn-pill-red {
+  background: #e11d48;
+  color: white !important;
+  padding: 7px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* ============================================================
+   Page Content Wrapper
+   ============================================================ */
+.main-wrapper {
+  flex: 1;
+  width: 100%;
+}
+
+.page-container {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Flash Messages */
+.alert-container {
+  max-width: 1100px;
+  margin: 1.5rem auto 0;
+  padding: 0 1.5rem;
+}
+
+.alert-item {
+  padding: 12px 18px;
+  border-radius: var(--radius-md);
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.alert-success {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.alert-error, .alert-danger {
+  background-color: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
+}
+
+.alert-info {
+  background-color: #e0f2fe;
+  color: #075985;
+  border: 1px solid #bae6fd;
+}
+
+.alert-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+/* ============================================================
+   Hero Section (as shown on Pages 6, 10, 15, 44)
+   ============================================================ */
+.hero-gradient-bg {
+  background: radial-gradient(circle at 80% 20%, #1e3a8a 0%, #0f172a 70%);
+  color: white;
+  padding: 4rem 2rem 5rem;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 320px;
+}
+
+.hero-text h1 {
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  color: #ffffff;
+}
+
+.hero-text h1 span {
+  color: #38bdf8;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  color: #cbd5e1;
+  margin-bottom: 2rem;
+  max-width: 480px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 24px;
+  border-radius: var(--radius-pill);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  background-color: #0284c7;
+  color: white;
+  box-shadow: 0 4px 14px rgba(2,132,199,0.4);
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0369a1;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.4);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: white;
+  color: white;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 440px;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: 4px solid rgba(255,255,255,0.15);
+  object-fit: cover;
+}
+
+/* ============================================================
+   Student Information Section (Home Bottom)
+   ============================================================ */
+.information-section {
+  padding: 3.5rem 1.5rem;
+  text-align: center;
+}
+
+.info-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #0f172a;
+}
+
+.info-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.info-item {
+  padding: 1.2rem;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  border: 1px solid #edf2f7;
+}
+
+.info-item h3 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.info-item p {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* ============================================================
+   Card Containers (General Pages & Forms)
+   ============================================================ */
+.card-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.portal-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+  border: 1px solid var(--border-color);
+}
+
+.portal-card-lg {
+  max-width: 900px;
+}
+
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.card-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* ============================================================
+   Page Banners (as in page 21, 22, 45, 53)
+   ============================================================ */
+.page-banner {
+  background: linear-gradient(135deg, #0b172a 0%, #1e3a8a 100%);
+  color: white;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.page-banner h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+}
+
+.page-banner p {
+  color: #94a3b8;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* ============================================================
+   Forms & Inputs
+   ============================================================ */
+.form-group {
+  margin-bottom: 1.3rem;
+  text-align: left;
+}
+
+.form-group label, .portal-card form p label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 0.4rem;
+}
+
+.form-control, .portal-card form input[type="text"], .portal-card form input[type="email"], 
+.portal-card form input[type="password"], .portal-card form select, .portal-card form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.95rem;
+  color: #1e293b;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: #ffffff;
+}
+
+.form-control:focus, .portal-card form input:focus, .portal-card form select:focus, .portal-card form textarea:focus {
+  outline: none;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2,132,199,0.15);
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 0.8rem;
+}
+
+.btn-submit:hover {
+  background-color: #0369a1;
+}
+
+/* ============================================================
+   Tables (as in Pages 19, 46, 51, 53)
+   ============================================================ */
+.table-container {
+  background: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+  border: 1px solid var(--border-color);
+  overflow-x: auto;
+}
+
+.table-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.portal-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.portal-table th {
+  background-color: #0f172a;
+  color: white;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.portal-table th:first-child {
+  border-top-left-radius: var(--radius-sm);
+}
+
+.portal-table th:last-child {
+  border-top-right-radius: var(--radius-sm);
+}
+
+.portal-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+.portal-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.badge-edit {
+  background-color: #10b981;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.badge-edit:hover {
+  background-color: #059669;
+}
+
+.badge-delete {
+  background-color: #ef4444;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-delete:hover {
+  background-color: #dc2626;
+}
+
+/* ============================================================
+   Search Bar
+   ============================================================ */
+.search-box {
+  display: flex;
+  gap: 8px;
+  max-width: 400px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.btn-search {
+  padding: 8px 16px;
+  background: #0284c7;
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  background: #0b1320;
+  color: #94a3b8;
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.88rem;
+  margin-top: auto;
+  border-top: 1px solid #1e293b;
+}
+
+.footer a {
+  color: #38bdf8;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Quick Practicals Floating / Subnav Ribbon */
+.practicals-ribbon {
+  background: #1e293b;
+  color: #94a3b8;
+  padding: 8px 2rem;
+  font-size: 0.82rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.practicals-ribbon a {
+  color: #38bdf8;
+  margin: 0 8px;
+  font-weight: 500;
+}
+
+.practicals-ribbon a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}

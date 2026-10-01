@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block title %}Django Template Filters - Practical 15{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 15: Using Django Template Filters</h1>
+  <p>Data formatting pipelines using pipe operator <code>|</code> in Django templates</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card portal-card-lg">
+    <h2 class="card-title">Django Template Filters</h2>
+    <p class="card-subtitle">Source Variable: <code>"{{ message }}"</code></p>
+
+    <div class="table-container" style="box-shadow:none; padding:0; margin-bottom:1.5rem;">
+      <table class="portal-table">
+        <thead>
+          <tr>
+            <th>Filter Expression</th>
+            <th>Filter Syntax</th>
+            <th>Processed Output</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Original</strong></td>
+            <td><code>&#123;&#123; message &#125;&#125;</code></td>
+            <td>{{ message }}</td>
+          </tr>
+          <tr>
+            <td><strong>Uppercase</strong></td>
+            <td><code>&#123;&#123; message|upper &#125;&#125;</code></td>
+            <td><strong style="color:#0284c7;">{{ message|upper }}</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Lowercase</strong></td>
+            <td><code>&#123;&#123; message|lower &#125;&#125;</code></td>
+            <td>{{ message|lower }}</td>
+          </tr>
+          <tr>
+            <td><strong>Capitalize First</strong></td>
+            <td><code>&#123;&#123; message|capfirst &#125;&#125;</code></td>
+            <td>{{ message|capfirst }}</td>
+          </tr>
+          <tr>
+            <td><strong>Title Case</strong></td>
+            <td><code>&#123;&#123; name|title &#125;&#125;</code></td>
+            <td>{{ name|title }}</td>
+          </tr>
+          <tr>
+            <td><strong>Truncate Chars (12)</strong></td>
+            <td><code>&#123;&#123; message|truncatechars:12 &#125;&#125;</code></td>
+            <td><code>{{ message|truncatechars:12 }}</code></td>
+          </tr>
+          <tr>
+            <td><strong>String Length</strong></td>
+            <td><code>&#123;&#123; message|length &#125;&#125;</code></td>
+            <td><span style="background:#e2e8f0; padding:2px 8px; border-radius:10px; font-weight:700;">{{ message|length }} chars</span></td>
+          </tr>
+          <tr>
+            <td><strong>Current Date Format</strong></td>
+            <td><code>&#123;% now "d M Y" %&#125;</code></td>
+            <td>{% now "d M Y" %}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Custom message tester -->
+    <form method="GET" style="background:#f8fafc; padding:1.2rem; border-radius:10px; border:1px solid #e2e8f0; display:flex; gap:10px; align-items:center;">
+      <input type="text" name="msg" value="{{ message }}" class="form-control" placeholder="Test with your custom text..." style="margin-bottom:0;">
+      <button type="submit" class="btn" style="white-space:nowrap; padding:10px 20px;">Apply Filters</button>
+    </form>
+
+    <div style="margin-top:2rem; text-align:center;">
+      <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

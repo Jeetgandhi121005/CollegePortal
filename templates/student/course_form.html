@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if object %}Edit Course{% else %}Add Course{% endif %} - Practical 22{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>{% if object %}Edit Course: {{ object.course_name }}{% else %}Add New Course{% endif %}</h1>
+  <p>Practical 22: Class-Based View Form (CreateView / UpdateView)</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card">
+    <h2 class="card-title">{% if object %}Update Course{% else %}New Course Details{% endif %}</h2>
+    <p class="card-subtitle">Manage curriculum courses and faculty assignment</p>
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="id_course_name">Course Name</label>
+        <input type="text" name="course_name" id="id_course_name" class="form-control" value="{{ form.course_name.value|default:'' }}" placeholder="e.g. Python Django" required>
+      </div>
+
+      <div class="form-group">
+        <label for="id_course_code">Course Code</label>
+        <input type="text" name="course_code" id="id_course_code" class="form-control" value="{{ form.course_code.value|default:'' }}" placeholder="e.g. PY101" required>
+      </div>
+
+      <div class="form-group">
+        <label for="id_faculty_name">Faculty Name</label>
+        <input type="text" name="faculty_name" id="id_faculty_name" class="form-control" value="{{ form.faculty_name.value|default:'Prof. Mehta' }}" placeholder="e.g. Prof. Mehta" required>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+        <div class="form-group">
+          <label for="id_start_date">Start Date</label>
+          <input type="date" name="start_date" id="id_start_date" class="form-control" value="{{ form.start_date.value|date:'Y-m-d'|default:'' }}">
+        </div>
+        <div class="form-group">
+          <label for="id_end_date">End Date</label>
+          <input type="date" name="end_date" id="id_end_date" class="form-control" value="{{ form.end_date.value|date:'Y-m-d'|default:'' }}">
+        </div>
+      </div>
+
+      <div class="form-group" style="display:flex; align-items:center; gap:8px; margin-top:8px;">
+        <input type="checkbox" name="is_active" id="id_is_active" {% if form.is_active.value or not object %}checked{% endif %}>
+        <label for="id_is_active" style="margin-bottom:0; cursor:pointer;">Course is currently active</label>
+      </div>
+
+      <button type="submit" class="btn-submit">
+        {% if object %}Save Changes{% else %}Create Course{% endif %}
+      </button>
+    </form>
+
+    <div style="margin-top:1.5rem; text-align:center;">
+      <a href="{% url 'course_list' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Courses</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

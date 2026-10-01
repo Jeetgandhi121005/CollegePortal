@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - College Portal{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Portal Authentication</h1>
+  <p>Practical 24: Django User Authentication, Login and Session Handling</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card" style="max-width:440px;">
+    <h2 class="card-title">Login</h2>
+    <p class="card-subtitle">Sign in to your College Portal account</p>
+
+    <form method="POST">
+      {% csrf_token %}
+      
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="Enter username (e.g. admin or jeet)" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" class="btn-submit" style="background:#0284c7; margin-top:1.2rem;">Login</button>
+    </form>
+
+    <div style="margin-top:1.8rem; padding-top:1.2rem; border-top:1px solid #e2e8f0; font-size:0.85rem; color:#64748b; text-align:center;">
+      <p>Need a superuser account for testing?</p>
+      <p style="margin-top:4px;">Run <code>python manage.py createsuperuser</code> or use the pre-configured accounts.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

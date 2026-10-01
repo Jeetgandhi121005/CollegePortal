@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}About Us - College Portal{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>About Us</h1>
+  <p>Welcome to College Portal.</p>
+</section>
+
+<div class="page-container">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1rem;">
+    
+    <!-- Mission Card -->
+    <div style="background:white; padding: 2.5rem; border-radius: 14px; box-shadow: var(--shadow-md); border-top: 4px solid #0284c7;">
+      <h2 style="font-size: 1.4rem; color: #0284c7; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px;">
+        <span style="display:inline-block; width:4px; height:20px; background:#0284c7; border-radius:2px;"></span>
+        Our Mission
+      </h2>
+      <p style="color:#475569; line-height: 1.7; font-size: 1rem;">
+        We provide quality education and practical learning to help students build successful careers through modern technology, experienced faculty, and industry-oriented projects.
+      </p>
+    </div>
+
+    <!-- Why Choose Us Card -->
+    <div style="background:white; padding: 2.5rem; border-radius: 14px; box-shadow: var(--shadow-md); border-top: 4px solid #0284c7;">
+      <h2 style="font-size: 1.4rem; color: #0284c7; margin-bottom: 1.2rem; display: flex; align-items: center; gap: 8px;">
+        <span style="display:inline-block; width:4px; height:20px; background:#0284c7; border-radius:2px;"></span>
+        Why Choose Us?
+      </h2>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem; color:#475569; font-size: 0.95rem;">
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Experienced Faculty</li>
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Modern Computer Labs</li>
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Industry Projects</li>
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Placement Support</li>
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Live Practical Sessions</li>
+        <li style="display:flex; align-items:center; gap:8px;"><span style="color:#0284c7; font-weight:bold;">✓</span> Career Guidance</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

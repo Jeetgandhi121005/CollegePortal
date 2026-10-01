@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Student List - Practical 21 CRUD{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Student Management</h1>
+  <p>Practical 21: Student CRUD Operations using Function Based Views (FBV)</p>
+</section>
+
+<div class="page-container">
+  <div class="table-container">
+    <div class="table-header-flex">
+      <div>
+        <h2 style="font-size:1.4rem; color:#0f172a; margin-bottom:4px;">Student List</h2>
+        <span style="color:#64748b; font-size:0.88rem;">Total Students Registered: <strong>{{ students.count }}</strong></span>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <a href="{% url 'add_student' %}" class="btn" style="padding:8px 18px; font-size:0.88rem;">+ Add Student</a>
+        <a href="{% url 'student_form' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:8px 18px; font-size:0.88rem;">Use Django Form</a>
+      </div>
+    </div>
+
+    <table class="portal-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Course</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>City</th>
+          <th style="text-align:center;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in students %}
+          <tr>
+            <td>{{ student.id }}</td>
+            <td><strong>{{ student.name }}</strong></td>
+            <td><span style="background:#e0f2fe; color:#0369a1; padding:3px 8px; border-radius:6px; font-size:0.82rem; font-weight:600;">{{ student.course.course_name }}</span></td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.mobile }}</td>
+            <td>{{ student.city }}</td>
+            <td style="text-align:center; white-space:nowrap;">
+              <a href="{% url 'edit_student' student.id %}" class="badge-edit">Edit</a>
+              <a href="{% url 'delete_student' student.id %}" class="badge-delete" onclick="return confirm('Are you sure you want to delete this student?');">Delete</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="7" style="text-align:center; padding:2.5rem; color:#64748b;">
+              <p style="font-size:1.1rem; margin-bottom:1rem;">No students found in the database yet.</p>
+              <a href="{% url 'add_student' %}" class="btn">+ Register First Student</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

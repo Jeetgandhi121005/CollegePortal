@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Student Management System - College Portal{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+  <!-- Top Practicals Fast Switcher Ribbon -->
+  <div class="practicals-ribbon">
+    <span><strong>Assignment Practicals:</strong></span>
+    <div>
+      <a href="{% url 'practicals' %}">📋 All Practicals (1-25)</a>
+      | <a href="{% url 'welcome_http' %}">P3: HTTP Welcome</a>
+      | <a href="{% url 'contact_param' 'jeet' %}">P4: URL Param</a>
+      | <a href="{% url 'student' %}">P7: Inject Data</a>
+      | <a href="{% url 'students_loop' %}">P8: For Loop</a>
+      | <a href="{% url 'course' %}">P9: Courses</a>
+      | <a href="{% url 'marks' %}">P10: If</a>
+      | <a href="{% url 'result' %}">P11: If-Else</a>
+      | <a href="{% url 'grade' %}">P12: Grade Calc</a>
+      | <a href="{% url 'employee' %}">P13: Salary Status</a>
+      | <a href="{% url 'books' %}">P14: Empty List</a>
+      | <a href="{% url 'filters' %}">P15: Filters</a>
+      | <a href="{% url 'student_form' %}">P20: Form</a>
+      | <a href="{% url 'student_list' %}">P21: Student CRUD</a>
+      | <a href="{% url 'course_list' %}">P22: Course CBV</a>
+      | <a href="{% url 'show_session' %}">P23: Sessions</a>
+      | <a href="{% url 'check_email_page' %}">P25: AJAX Check</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <header class="navbar">
+    <a href="{% url 'home' %}" class="nav-brand">
+      <img src="{% static 'images/logo.png' %}" alt="Logo">
+      College<span>Portal</span>
+    </a>
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="{% url 'home' %}" class="nav-link">Home</a></li>
+        <li><a href="{% url 'about' %}" class="nav-link">About</a></li>
+        <li><a href="{% url 'course' %}" class="nav-link">Courses</a></li>
+        <li><a href="{% url 'contact' %}" class="nav-link">Contact</a></li>
+        <li><a href="{% url 'course_list' %}" class="nav-link">Course Mgmt</a></li>
+        <li><a href="{% url 'practicals' %}" class="nav-link" style="color:#38bdf8;">Practicals Hub</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <a href="{% url 'student_list' %}" class="btn-pill-blue">Students</a>
+      <a href="{% url 'add_student' %}" class="btn-pill-cyan">Student Registration</a>
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn-pill-red">Logout ({{ user.username }})</a>
+      {% else %}
+        <a href="{% url 'login' %}" class="btn-pill-cyan" style="background:#475569;">Login</a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Flash Message Container -->
+  {% if messages %}
+    <div class="alert-container">
+      {% for message in messages %}
+        <div class="alert-item alert-{{ message.tags }}">
+          <span>{{ message }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <!-- Main Dynamic Body Content -->
+  <main class="main-wrapper">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2026 College Portal | All Rights Reserved</p>
+  </footer>
+
+  <!-- Master JavaScript File -->
+  <script src="{% static 'js/script.js' %}"></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

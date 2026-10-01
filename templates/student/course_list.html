@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}Course Management - Practical 22 CBV{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Course Management</h1>
+  <p>Practical 22: Course CRUD with Class Based Views (CBV) &amp; Live Search Filter</p>
+</section>
+
+<div class="page-container">
+  <div class="table-container">
+    <div class="table-header-flex">
+      <!-- Search Form -->
+      <form method="GET" class="search-box">
+        <input type="text" name="search" class="search-input" placeholder="Search course by name..." value="{{ request.GET.search|default:'' }}">
+        <button type="submit" class="btn-search">Search</button>
+        {% if request.GET.search %}
+          <a href="{% url 'course_list' %}" class="btn btn-outline" style="padding:8px 12px; font-size:0.85rem; color:#64748b; border-color:#cbd5e1;">Clear</a>
+        {% endif %}
+      </form>
+
+      <a href="{% url 'course_add' %}" class="btn" style="padding:8px 18px; font-size:0.88rem;">+ Add Course</a>
+    </div>
+
+    <table class="portal-table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Course Name</th>
+          <th>Faculty</th>
+          <th>Status</th>
+          <th style="text-align:center;">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for course in courses %}
+          <tr>
+            <td><strong style="color:#0284c7;">{{ course.course_code }}</strong></td>
+            <td><strong>{{ course.course_name }}</strong></td>
+            <td>{{ course.faculty_name }}</td>
+            <td>
+              {% if course.is_active %}
+                <span style="background:#dcfce7; color:#15803d; padding:4px 10px; border-radius:12px; font-size:0.8rem; font-weight:700;">Active</span>
+              {% else %}
+                <span style="background:#f1f5f9; color:#64748b; padding:4px 10px; border-radius:12px; font-size:0.8rem; font-weight:600;">Inactive</span>
+              {% endif %}
+            </td>
+            <td style="text-align:center; white-space:nowrap;">
+              <a href="{% url 'course_edit' course.id %}" class="badge-edit">Edit</a>
+              <a href="{% url 'course_delete' course.id %}" class="badge-delete">Delete</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5" style="text-align:center; padding:2.5rem; color:#64748b;">
+              <p style="font-size:1.1rem; margin-bottom:1rem;">No courses found matching your query.</p>
+              <a href="{% url 'course_add' %}" class="btn">+ Add First Course</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

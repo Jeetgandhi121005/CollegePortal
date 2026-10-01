@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Student List - Practical 8{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 8: Student List using Django For Loop</h1>
+  <p>Iterating Python lists inside Django templates with &#123;% for %&#125;</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card">
+    <h2 class="card-title">Student List</h2>
+    <p class="card-subtitle">Loop iteration over <code>student_list</code> array</p>
+
+    <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:12px; overflow:hidden;">
+      <ul style="list-style:none; margin:0; padding:0;">
+        {% for student in students %}
+          <li style="padding:14px 20px; border-bottom:1px solid #f1f5f9; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-weight:600; color:#1e293b;">{{ student }}</span>
+            <span style="background:#e0f2fe; color:#0369a1; font-size:0.8rem; font-weight:700; padding:3px 10px; border-radius:20px;">
+              Student #{{ forloop.counter }}
+            </span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div style="margin-top:2rem; display:flex; justify-content:space-between; align-items:center;">
+      <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals</a>
+      <a href="{% url 'student_list' %}" class="btn">View Database CRUD List →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

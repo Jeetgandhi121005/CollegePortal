@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Registration (Django Form) - Practical 20{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 20: Create and Display Django Form</h1>
+  <p>Django ModelForm rendering with automatic CSRF token &amp; form validation</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card">
+    <h2 class="card-title">Student Registration</h2>
+    <p class="card-subtitle">Rendered using Django <code>{{ form.as_p }}</code></p>
+
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <p id="email-message" style="margin-top:-8px; margin-bottom:12px; font-size:0.85rem; font-weight:600;"></p>
+      <button type="submit" class="btn-submit">Save Student</button>
+    </form>
+
+    <div style="margin-top:1.5rem; text-align:center;">
+      <a href="{% url 'student_list' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">View Student List →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  $('#email').on('keyup input', function () {
+    var email = $(this).val().trim();
+    if(email.length > 2) {
+      $.ajax({
+        url: "{% url 'check_email' %}",
+        data: {'email': email},
+        success: function (data) {
+          if (data.exists) {
+            $('#email-message').text('⚠️ This email ID already exists in the database.').css('color', '#ef4444');
+          } else {
+            $('#email-message').text('✅ Email ID is available.').css('color', '#10b981');
+          }
+        }
+      });
+    } else {
+      $('#email-message').text('');
+    }
+  });
+</script>
+{% endblock %}

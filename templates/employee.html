@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Employee Salary Status - Practical 13{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 13: Employee Salary Status</h1>
+  <p>Nested &#123;% if %&#125; condition inside &#123;% for %&#125; loop</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card portal-card-lg">
+    <h2 class="card-title">Employee Salary Status</h2>
+    <p class="card-subtitle">Condition: Salary &gt; ₹40,000 gives <strong>High Salary / Bonus</strong> status</p>
+
+    <div class="table-container" style="box-shadow:none; padding:0;">
+      <table class="portal-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Employee Name</th>
+            <th>Salary (₹)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for employee in employees %}
+            <tr>
+              <td>{{ forloop.counter }}</td>
+              <td><strong>{{ employee.name }}</strong></td>
+              <td>₹{{ employee.salary }}</td>
+              <td>
+                {% if employee.salary > 40000 %}
+                  <span style="background:#dcfce7; color:#15803d; padding:4px 10px; border-radius:12px; font-weight:700; font-size:0.82rem;">
+                    High Salary (Eligible for Bonus)
+                  </span>
+                {% else %}
+                  <span style="background:#f1f5f9; color:#64748b; padding:4px 10px; border-radius:12px; font-weight:600; font-size:0.82rem;">
+                    Normal Salary (Not Eligible)
+                  </span>
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:2rem; text-align:center;">
+      <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

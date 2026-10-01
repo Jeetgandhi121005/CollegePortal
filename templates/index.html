@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - College Portal{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-gradient-bg">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1>Welcome to <span>Django Project</span></h1>
+        <p>Build your future with modern technology courses, practical learning, expert guidance, and new opportunities.</p>
+        <div class="hero-buttons">
+          <a href="{% url 'course' %}" class="btn">Explore Courses</a>
+          <a href="{% url 'contact' %}" class="btn btn-outline">Contact Us</a>
+          <button onclick="showMessage()" class="btn btn-outline" style="cursor:pointer;" title="Practical 19 Demo">
+            🔔 Click for Alert
+          </button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="{% static 'images/student.png' %}" alt="College Student">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Student Information Section -->
+<section class="information-section">
+  <div class="info-container">
+    <h2 class="section-title">Student Information</h2>
+    <div class="info-card">
+      <div class="info-item">
+        <h3>Name</h3>
+        <p>{{ data.name }}</p>
+      </div>
+      <div class="info-item">
+        <h3>College</h3>
+        <p>{{ data.college }}</p>
+      </div>
+      <div class="info-item">
+        <h3>Course</h3>
+        <p>{{ data.course }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Result - Practical 10{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Practical 10: Display Pass or Fail using if Statement</h1>
+  <p>Template Conditional Logic: &#123;% if %&#125;</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card" style="text-align:center;">
+    <h2 class="card-title">Student Result</h2>
+    <p style="color:#64748b; margin-bottom:1.5rem;">Student Name : <strong>Jeet Gandhi</strong></p>
+
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:2rem; margin-bottom:1.5rem;">
+      <p style="font-size:1.2rem; margin-bottom:1rem; color:#334155;">Marks: <strong>{{ marks }}</strong></p>
+      
+      {% if marks >= 35 %}
+        <div style="background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; padding:12px 20px; border-radius:30px; display:inline-block; font-size:1.3rem; font-weight:800;">
+          Result : Pass
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Quick Test Controls -->
+    <div style="background:#f1f5f9; padding:1rem; border-radius:8px; margin-bottom:1.5rem;">
+      <span style="font-size:0.88rem; color:#475569; display:block; margin-bottom:8px;">Test with different marks:</span>
+      <a href="?marks=72" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:4px 12px; font-size:0.82rem;">Marks = 72 (Pass)</a>
+      <a href="?marks=25" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7; padding:4px 12px; font-size:0.82rem;">Marks = 25</a>
+    </div>
+
+    <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals</a>
+  </div>
+</div>
+{% endblock %}

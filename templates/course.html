@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Courses - College Portal{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/course.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Our Courses</h1>
+  <p>Practical 9: Display Course List using forloop.counter & Dynamic Cards</p>
+</section>
+
+<section class="course-container">
+  <div class="course-card">
+    <h2>Python</h2>
+    <p>Learn Python programming from beginner to advanced.</p>
+  </div>
+  <div class="course-card">
+    <h2>HTML &amp; CSS</h2>
+    <p>Build responsive websites using HTML5 and CSS3.</p>
+  </div>
+  <div class="course-card">
+    <h2>Android</h2>
+    <p>Create Android apps using Java and Android Studio.</p>
+  </div>
+  <div class="course-card">
+    <h2>Angular</h2>
+    <p>Develop modern web applications using Angular.</p>
+  </div>
+</section>
+
+<!-- Demonstration of Dynamic Course List Passed from View -->
+<div class="page-container" style="margin-top: -1rem; margin-bottom: 3rem;">
+  <div class="table-container">
+    <h3 style="margin-bottom:1rem; color:#0f172a;">Courses Rendered via Django Context &amp; forloop.counter:</h3>
+    <ul style="list-style:none; display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:12px;">
+      {% for course in courses %}
+        <li style="background:#f8fafc; border:1px solid #e2e8f0; padding:12px 16px; border-radius:8px; display:flex; justify-content:space-between; align-items:center;">
+          <strong style="color:#0f172a;">{{ course }}</strong>
+          <span style="background:#0284c7; color:white; font-size:0.75rem; padding:2px 8px; border-radius:12px; font-weight:700;">
+            #{{ forloop.counter }}
+          </span>
+        </li>
+      {% endfor %}
+    </ul>
+    <div style="margin-top:1.5rem; text-align:right;">
+      <a href="{% url 'course_list' %}" class="btn">Manage Courses (CBV CRUD) →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us - College Portal{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Contact Us</h1>
+  <p>Feel free to contact us anytime.</p>
+</section>
+
+<div class="page-container">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 1rem;">
+    
+    <!-- Office Info Card -->
+    <div style="background:white; padding: 2.5rem; border-radius: 14px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+      <h2 style="font-size: 1.4rem; color: #0284c7; margin-bottom: 1.5rem;">Our Office</h2>
+      <div style="display:flex; flex-direction:column; gap:1.2rem; color:#475569; font-size: 0.98rem;">
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">✉ Email</strong>
+          <span>info@collegeportal.com</span>
+        </div>
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">📞 Phone</strong>
+          <span>+91 9876543210</span>
+        </div>
+        <div>
+          <strong style="color:#0f172a; display:block; margin-bottom:4px;">📍 Location</strong>
+          <span>Ahmedabad, Gujarat</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form Card -->
+    <div style="background:white; padding: 2.5rem; border-radius: 14px; box-shadow: var(--shadow-md); border: 1px solid var(--border-color);">
+      <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+          <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" style="background:#0284c7;">Send Message</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

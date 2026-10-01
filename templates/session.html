@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}Django Sessions - Practical 23{% endblock %}
+
+{% block content %}
+<section class="page-banner">
+  <h1>Django Session Management</h1>
+  <p>Practical 23: Create, Read, Modify and Delete Sessions (<code>request.session</code>)</p>
+</section>
+
+<div class="card-wrapper">
+  <div class="portal-card" style="text-align:center;">
+    <h2 class="card-title">Django Session</h2>
+    <p class="card-subtitle">Server-side session state store</p>
+
+    <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:2rem; margin-bottom:2rem; text-align:left;">
+      <div style="display:flex; justify-content:space-between; margin-bottom:1rem; border-bottom:1px solid #edf2f7; padding-bottom:8px;">
+        <span style="color:#64748b; font-weight:600;">Session Name :</span>
+        <strong style="color:#0f172a; font-size:1.05rem;">{{ name }}</strong>
+      </div>
+      <div style="display:flex; justify-content:space-between;">
+        <span style="color:#64748b; font-weight:600;">Session Course :</span>
+        <strong style="color:#0284c7; font-size:1.05rem;">{{ course }}</strong>
+      </div>
+    </div>
+
+    <!-- Action Buttons matching PDF Page 54 -->
+    <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom:2rem;">
+      <a href="{% url 'create_session' %}" class="btn" style="background:#0284c7; padding:10px 24px;">Create</a>
+      <a href="{% url 'modify_session' %}" class="btn" style="background:#10b981; padding:10px 24px;">Modify</a>
+      <a href="{% url 'delete_session' %}" class="btn" style="background:#ef4444; padding:10px 24px;">Delete</a>
+    </div>
+
+    <div style="font-size:0.88rem; color:#10b981; font-weight:600;">
+      Session state persists across requests using cookies and backend session engine.
+    </div>
+
+    <div style="margin-top:2rem;">
+      <a href="{% url 'practicals' %}" class="btn btn-outline" style="color:#0284c7; border-color:#0284c7;">← Back to Practicals</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
