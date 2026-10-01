@@ -41,7 +41,7 @@ python seed_data.py
 ```bash
 python manage.py runserver
 ```
-Visit **[Click Here]([http://127.0.0.1:8000/](https://collegeportal-7v6y.onrender.com/))** in your browser.
+Visit **[Click Here](https://collegeportal-7v6y.onrender.com/))** in your browser.
 
 ---
 
